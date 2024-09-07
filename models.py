@@ -1,5 +1,6 @@
 from tensorflow.keras.models import Sequential 
 from tensorflow.keras.layers import Conv2D, MaxPooling2D, Flatten, Dense, Dropout
+from tensorflow.keras.optimizers import Adam
 
 def create_model():
     model = Sequential();
@@ -31,6 +32,7 @@ def create_model():
     model.add(Dense(7, activation='softmax'))
 
     #Compiling the model
-    model.compile(optimizer='adam',loss='categorical_crossentropy', metrics=['accuracy'])
+    optimizer = Adam(learning_rate=0.01)
+    model.compile(optimizer=optimizer,loss='categorical_crossentropy', metrics=['accuracy'])
 
     return model
