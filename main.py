@@ -1,4 +1,4 @@
-from data_utils import load_data,preprocess
+from data_utils import load_data,preprocess,augment_data
 from models import create_model
 from train import train_model
 from evaluate import evaluate_model
@@ -15,9 +15,13 @@ def main():
 
     X_train, X_valid, y_train, y_valid = train_test_split(X_train, y_train, test_size = 0.2, random_state = 42)
 
+
+    #Augmenting the training data
+    datagen = augment_data(X_train, y_train)
+
     #Build and train the model
     model = create_model()
-    train_model = (model, X_train, y_train, X_valid, y_valid)
+    train_model = (model, X_train, y_train, X_valid, y_valid, datagen) 
 
     #Evaluate on private test dataset
     evaluate_model(model, X_private_test, y_private_test)
