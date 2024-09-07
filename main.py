@@ -43,11 +43,15 @@ def model():
     model.add(Conv2D(128,(3,3),activation='relu'))
     model.add(MaxPooling2D(pool_size=(2,2)))
 
+    #Fourth layer
+    model.add(Conv2D(256,(3,3),activation='relu'))
+    model.add(MaxPooling2D(pool_size=(2,2)))
+
     #Flattening layer
     model.add(Flatten())
 
     #Fully Connected Dense Layer
-    model.add(Dense(128,activation='relu'))
+    model.add(Dense(256,activation='relu'))
     model.add(Dropout(0.5))
 
     #Output
