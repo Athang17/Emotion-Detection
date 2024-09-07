@@ -21,7 +21,7 @@ def main():
 
     #Build and train the model
     model = create_model()
-    train_model = (model, X_train, y_train, X_valid, y_valid, datagen) 
+    train_model(model, X_train, y_train, X_valid, y_valid, datagen) 
 
     #Evaluate on private test dataset
     evaluate_model(model, X_private_test, y_private_test)
