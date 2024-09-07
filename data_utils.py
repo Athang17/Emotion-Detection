@@ -1,5 +1,6 @@
 import deeplake #dataset
 import tensorflow as tf 
+import numpy as np
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
 
 def load_data():
@@ -16,7 +17,7 @@ def preprocess(ds):
     labels = ds['labels'][:].numpy()
 
     #Normalize the image value
-    images = images/255.0
+    images = images / 255.0
 
     images = images[..., tf.newaxis]
 
