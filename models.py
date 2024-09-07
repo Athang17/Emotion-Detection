@@ -24,7 +24,7 @@ def create_model():
     model.add(Flatten())
 
     #Fully Connected Dense Layer
-    model.add(Dense(256,activation='relu'))
+    model.add(Dense(512,activation='relu'))
     model.add(Dropout(0.5))
 
     #Output
