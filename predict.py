@@ -17,17 +17,24 @@ def preprocess_image(img_path):
 
     return img_array
 
-def predict_image(model,img_path):
+def predict_image(model, img_path):
     img_array = preprocess_image(img_path)
     predictions = model.predict(img_array)
-    emotion = np.argmax(predictions)
+
+    # Get the index of the highest predicted probability
+    emotion_index = np.argmax(predictions)
+
+    # Map the index to the corresponding emotion label
+    emotion_labels = ['Angry', 'Disgust', 'Fear', 'Happy', 'Sad', 'Surprise', 'Neutral']
+    emotion = emotion_labels[emotion_index]
+    
     return emotion
 
 if __name__ == "__main__":
     #Load the model
-    model = load_model('emotion_detection_model.h5')
+    model = load_model(r'C:\Users\Admin\Downloads\emotion_detection_model.h5')
 
     #Predict on a new image
-    img_path = r"D:\NMIMS\Sem 5\IVP\Emotion-Detection\20240907_184429.jpg"
+    img_path = r"C:\Users\Admin\Downloads\bill.jpeg"
     emotion = predict_image(model,img_path)
     print(f"Predicted Emotion: {emotion}")
