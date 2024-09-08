@@ -42,5 +42,9 @@ if __name__ == "__main__":
 
     #Predict on a new image
     img_path = r"C:\Users\Admin\Downloads\angry_image.jpg"
-    emotion = predict_image(model,img_path)
+    emotion, emotion_confidences = predict_image(model, img_path)  # Unpack both emotion and confidences
+
     print(f"Predicted Emotion: {emotion}")
+    print("Emotion Confidences:")
+    for emotion_label, confidence in emotion_confidences.items():
+        print(f"{emotion_label}: {confidence}%")
