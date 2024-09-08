@@ -28,13 +28,19 @@ def predict_image(model, img_path):
     emotion_labels = ['Angry', 'Disgust', 'Fear', 'Happy', 'Sad', 'Surprise', 'Neutral']
     emotion = emotion_labels[emotion_index]
     
-    return emotion
+    # Probabilities of all emotions
+    emotion_probabilities = predictions[0]
+
+    # Dictionary mapping emotions to their respective probabilities
+    emotion_confidences = {emotion_labels[i]: round(emotion_probabilities[i] * 100, 2) for i in range(len(emotion_labels))}
+
+    return emotion, emotion_confidences
 
 if __name__ == "__main__":
     #Load the model
     model = load_model(r'D:\NMIMS\Sem 5\IVP\Emotion-Detection\emotion_detection_model.h5')
 
     #Predict on a new image
-    img_path = r"C:\Users\Admin\Downloads\disgust_image.png"
+    img_path = r"C:\Users\Admin\Downloads\angry_image.jpg"
     emotion = predict_image(model,img_path)
     print(f"Predicted Emotion: {emotion}")
