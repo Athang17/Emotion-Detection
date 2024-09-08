@@ -32,9 +32,9 @@ def predict_image(model, img_path):
 
 if __name__ == "__main__":
     #Load the model
-    model = load_model(r'C:\Users\Admin\Downloads\emotion_detection_model.h5')
+    model = load_model(r'D:\NMIMS\Sem 5\IVP\Emotion-Detection\emotion_detection_model.h5')
 
     #Predict on a new image
-    img_path = r"C:\Users\Admin\Downloads\bill.jpeg"
+    img_path = r"C:\Users\Admin\Downloads\disgust_image.png"
     emotion = predict_image(model,img_path)
     print(f"Predicted Emotion: {emotion}")
