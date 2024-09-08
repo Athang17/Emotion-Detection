@@ -41,7 +41,7 @@ if __name__ == "__main__":
     model = load_model(r'D:\NMIMS\Sem 5\IVP\Emotion-Detection\emotion_detection_model.h5')
 
     #Predict on a new image
-    img_path = r"C:\Users\Admin\Downloads\angry_image.jpg"
+    img_path = r"C:\Users\Admin\Downloads\neutral_image.jpg"
     emotion, emotion_confidences = predict_image(model, img_path)  # Unpack both emotion and confidences
 
     print(f"Predicted Emotion: {emotion}")
